@@ -1,5 +1,5 @@
 # San Francisco Food Truck (SFFT)
-SFFT is a [GraphQL](https://graphql.org/learn/) endpoint for San Francisco's public data of [food permits]() (aka food trucks) and their associated [schedules]()
+SFFT is a [GraphQL](https://graphql.org/learn/) endpoint for San Francisco's public data of [food permits](https://data.sfgov.org/Economy-and-Community/Mobile-Food-Facility-Permit/rqzj-sfat/about_data) (aka food trucks) and their associated [schedules](https://data.sfgov.org/Economy-and-Community/Mobile-Food-Schedule/jjew-r69b/about_data)
 
 It re-fetches the latest data [every morning at 8am](link to timer on github)
 
