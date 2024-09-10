@@ -24,5 +24,7 @@ Try running the query
 API endpoint tests are located in [test/sfft_web/api_test.exs](https://github.com/lokilow/sfft/blob/main/test/sfft_web/api_test.exs)
 Github Actions CI workflow is in [.github/workflows/elixir.yml](https://github.com/lokilow/sfft/blob/main/.github/workflows/elixir.yml)
 
+Deploy manually by running `fly deploy`
+
 ### Next Steps
 Extend the GraphQL schema to allow querying for a schedule by location id
