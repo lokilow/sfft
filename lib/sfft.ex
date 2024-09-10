@@ -28,8 +28,7 @@ defmodule SFFT do
           [location_id, name, type | _] = row
           %{location_id: String.to_integer(location_id), name: name, type: type}
         end)
-
-      # |> then(&Repo.insert_all(SFFT.Permit, &1))
+        |> then(&SFFT.Repo.insert_all(SFFT.Data.Permit, &1))
 
       %{status: status} ->
         Logger.error("Error downloading permit data. status=#{status}")
