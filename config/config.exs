@@ -7,6 +7,8 @@
 # General application configuration
 import Config
 
+config :elixir, :time_zone_database, Tz.TimeZoneDatabase
+
 config :sfft,
   namespace: SFFT,
   ecto_repos: [SFFT.Repo],

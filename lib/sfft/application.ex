@@ -19,7 +19,8 @@ defmodule SFFT.Application do
       # Start a worker by calling: SFFT.Worker.start_link(arg)
       # {SFFT.Worker, arg},
       # Start to serve requests, typically the last entry
-      SFFTWeb.Endpoint
+      SFFTWeb.Endpoint,
+      SFFT.DataFetcher
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
