@@ -3,9 +3,9 @@ defmodule SFFT.Data.Schedule do
   import Ecto.Changeset
 
   schema "schedules" do
-    field :close, :string
-    field :open, :string
     field :day, :string
+    field :open, :string
+    field :close, :string
 
     belongs_to :permit, SFFT.Data.Permit, foreign_key: :location_id
   end

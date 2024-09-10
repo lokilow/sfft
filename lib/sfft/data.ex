@@ -18,7 +18,7 @@ defmodule SFFT.Data do
 
   """
   def list_permits do
-    Repo.all(Permit)
+    Permit |> Repo.all() |> Repo.preload([:schedules])
   end
 
   @doc """
@@ -69,34 +69,34 @@ defmodule SFFT.Data do
   end
 
   @doc """
-  Gets a single schedules.
+  Gets a single schedule.
 
   Raises `Ecto.NoResultsError` if the Schedule does not exist.
 
   ## Examples
 
-      iex> get_schedules!(123)
+      iex> get_schedule!(123)
       %Schedule{}
 
-      iex> get_schedules!(456)
+      iex> get_schedule!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_schedules!(id), do: Repo.get!(Schedule, id)
+  def get_schedule!(id), do: Repo.get!(Schedule, id)
 
   @doc """
-  Creates a schedules.
+  Creates a schedule.
 
   ## Examples
 
-      iex> create_schedules(%{field: value})
+      iex> create_schedule(%{field: value})
       {:ok, %Schedule{}}
 
-      iex> create_schedules(%{field: bad_value})
+      iex> create_schedule(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_schedules(attrs \\ %{}) do
+  def create_schedule(attrs \\ %{}) do
     %Schedule{}
     |> Schedule.changeset(attrs)
     |> Repo.insert()

@@ -11,7 +11,7 @@ defmodule SFFT.DataFixtures do
     {:ok, permit} =
       attrs
       |> Enum.into(%{
-        location_id: 42,
+        location_id: System.unique_integer([:positive]),
         name: "some name",
         type: "some type"
       })
@@ -21,10 +21,10 @@ defmodule SFFT.DataFixtures do
   end
 
   @doc """
-  Generate a schedules.
+  Generate a schedule.
   """
-  def schedules_fixture(attrs \\ %{}) do
-    {:ok, schedules} =
+  def schedule_fixture(attrs \\ %{}) do
+    {:ok, schedule} =
       attrs
       |> Enum.into(%{
         close: "some close",
@@ -32,8 +32,8 @@ defmodule SFFT.DataFixtures do
         location_id: 42,
         open: "some open"
       })
-      |> SFFT.Data.create_schedules()
+      |> SFFT.Data.create_schedule()
 
-    schedules
+    schedule
   end
 end

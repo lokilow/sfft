@@ -47,7 +47,8 @@ defmodule SFFT.MixProject do
       {:bandit, "~> 1.5"},
       {:tz, "~> 0.28"},
       {:req, "~> 0.5.0"},
-      {:nimble_csv, "~> 1.2"}
+      {:nimble_csv, "~> 1.2"},
+      {:absinthe_plug, "~> 1.5"}
     ]
   end
 
