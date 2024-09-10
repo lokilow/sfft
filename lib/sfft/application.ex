@@ -7,6 +7,8 @@ defmodule SFFT.Application do
 
   @impl true
   def start(_type, _args) do
+    SFFT.Release.migrate()
+
     children = [
       SFFTWeb.Telemetry,
       SFFT.Repo,
