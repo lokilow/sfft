@@ -1,4 +1,7 @@
 defmodule SFFT.DataFetcher do
+  @moduledoc """
+  Process to refetch data every morning at 8AM Pacific Time
+  """
   use GenServer
 
   alias DateTime, as: DT
@@ -26,7 +29,8 @@ defmodule SFFT.DataFetcher do
     SFFT.fetch_schedule_data()
 
     tomorrow =
-      DT.now!("America/Los_Angeles")
+      "America/Los_Angeles"
+      |> DT.now!()
       |> DT.add(1, :day)
       |> then(&(&1 |> DT.to_date() |> DT.new!(@refresh_time, "America/Los_Angeles")))
 

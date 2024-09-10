@@ -1,4 +1,9 @@
 defmodule SFFTWeb.Schema do
+  @moduledoc """
+  The GraphQL Schema defintion
+
+  Since this is a simple API, also define types directly in this module
+  """
   use Absinthe.Schema
 
   alias SFFTWeb.Resolver

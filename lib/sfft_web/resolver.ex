@@ -1,4 +1,7 @@
 defmodule SFFTWeb.Resolver do
+  @moduledoc """
+  GraphQL Resolvers
+  """
   alias SFFT.Data
 
   def all_permits(_root, _args, _info) do

@@ -1,4 +1,7 @@
 defmodule SFFT.Data.Permit do
+  @moduledoc """
+  The Permit Ecto Schema
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

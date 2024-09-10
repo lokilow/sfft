@@ -1,4 +1,7 @@
 defmodule SFFT.Data.Schedule do
+  @moduledoc """
+  The Schedule Ecto Schema
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
