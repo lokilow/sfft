@@ -7,6 +7,7 @@ defmodule SFFT do
   if it comes from the database, an external API or others.
   """
 
+  alias SFFT.{Data.Permit, Data.Schedule, Repo}
   require Logger
 
   @permit_url "https://data.sfgov.org/resource/rqzj-sfat.csv"
@@ -28,7 +29,7 @@ defmodule SFFT do
           [location_id, name, type | _] = row
           %{location_id: String.to_integer(location_id), name: name, type: type}
         end)
-        |> then(&SFFT.Repo.insert_all(SFFT.Data.Permit, &1))
+        |> then(&Repo.insert_all(Permit, &1, on_conflict: :replace_all))
 
       %{status: status} ->
         Logger.error("Error downloading permit data. status=#{status}")
@@ -51,8 +52,7 @@ defmodule SFFT do
           [_, day, open, close, _, _, _, _, location_id | _] = row
           %{day: day, open: open, close: close, location_id: String.to_integer(location_id)}
         end)
-
-      # |> then(&Repo.insert_all(SFFT.Schedule, &1))
+        |> then(&Repo.insert_all(Schedule, &1, on_conflict: :replace_all))
 
       %{status: status} ->
         Logger.error("Error downloading schedule data. status=#{status}")

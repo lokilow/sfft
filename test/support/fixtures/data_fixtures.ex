@@ -19,4 +19,21 @@ defmodule SFFT.DataFixtures do
 
     permit
   end
+
+  @doc """
+  Generate a schedules.
+  """
+  def schedules_fixture(attrs \\ %{}) do
+    {:ok, schedules} =
+      attrs
+      |> Enum.into(%{
+        close: "some close",
+        day: "some day",
+        location_id: 42,
+        open: "some open"
+      })
+      |> SFFT.Data.create_schedules()
+
+    schedules
+  end
 end

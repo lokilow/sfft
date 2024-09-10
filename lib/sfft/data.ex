@@ -4,9 +4,9 @@ defmodule SFFT.Data do
   """
 
   import Ecto.Query, warn: false
-  alias SFFT.Repo
 
-  alias SFFT.Data.Permit
+  alias SFFT.Repo
+  alias SFFT.Data.{Permit, Schedule}
 
   @doc """
   Returns the list of permits.
@@ -52,6 +52,53 @@ defmodule SFFT.Data do
   def create_permit(attrs \\ %{}) do
     %Permit{}
     |> Permit.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Returns the list of schedules.
+
+  ## Examples
+
+      iex> list_schedules()
+      [%Schedule{}, ...]
+
+  """
+  def list_schedules do
+    Repo.all(Schedule)
+  end
+
+  @doc """
+  Gets a single schedules.
+
+  Raises `Ecto.NoResultsError` if the Schedule does not exist.
+
+  ## Examples
+
+      iex> get_schedules!(123)
+      %Schedule{}
+
+      iex> get_schedules!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_schedules!(id), do: Repo.get!(Schedule, id)
+
+  @doc """
+  Creates a schedules.
+
+  ## Examples
+
+      iex> create_schedules(%{field: value})
+      {:ok, %Schedule{}}
+
+      iex> create_schedules(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_schedules(attrs \\ %{}) do
+    %Schedule{}
+    |> Schedule.changeset(attrs)
     |> Repo.insert()
   end
 end
